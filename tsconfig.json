@@ -1,0 +1,16 @@
+{
+    "extends": "@tsconfig/node14/tsconfig.json",
+    "compilerOptions": {
+        "strict": false,
+        "outDir": "dist",
+        "moduleResolution": "node",
+        "typeRoots": ["./node_modules/@types"],
+        "baseUrl": ".",
+        "paths": {
+            "*": ["src/layers/dependencies/nodejs/node_modules/*"],
+            "/opt/*": ["src/layers/common/*"]
+        }
+    },
+    "include": ["src/**/*.ts"],
+    "exclude": ["node_modules", "src/layers/dependencies/nodejs/node_modules", "src/**/*.spec.ts"]
+}

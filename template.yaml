@@ -1,0 +1,60 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: AWS::Serverless-2016-10-31
+Description: ''
+
+################################### APPLICATION PARAMETERS ###################################
+
+################################### APPLICATION CONDITIONS ###################################
+
+################################### GLOBAL DEFINITIONS ###################################
+
+Globals:
+    Function:
+        Runtime: nodejs14.x
+
+################################### APPLICATION RESOURCES ###################################
+
+Resources:
+    DependencyLayer:
+        Type: AWS::Serverless::LayerVersion
+        Properties:
+            LayerName: BookServiceDependencyLayer
+            Description: ''
+            ContentUri: src/layers/dependencies
+            CompatibleRuntimes:
+                - nodejs14.x
+            RetentionPolicy: Retain
+        Metadata:
+            BuildMethod: nodejs14.x
+
+    CommonLayer:
+        Type: AWS::Serverless::LayerVersion
+        Properties:
+            LayerName: BookServiceCommonLayer
+            Description: ''
+            ContentUri: dist/layers/common
+            CompatibleRuntimes:
+                - nodejs14.x
+            RetentionPolicy: Retain
+        Metadata:
+            BuildMethod: nodejs14.x
+
+    SourceFunction:
+        Type: AWS::Serverless::Function
+        Properties:
+            FunctionName: source
+            CodeUri: dist/handlers/source
+            Handler: app.handler
+            Layers:
+                - !Ref DependencyLayer
+                - !Ref CommonLayer
+
+    TargetFunction:
+        Type: AWS::Serverless::Function
+        Properties:
+            FunctionName: target
+            CodeUri: dist/handlers/target
+            Handler: app.handler
+            Layers:
+                - !Ref DependencyLayer
+                - !Ref CommonLayer
