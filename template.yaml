@@ -18,8 +18,7 @@ Resources:
     DependencyLayer:
         Type: AWS::Serverless::LayerVersion
         Properties:
-            LayerName: BookServiceDependencyLayer
-            Description: ''
+            LayerName: DependencyLayer
             ContentUri: src/layers/dependencies
             CompatibleRuntimes:
                 - nodejs14.x
@@ -30,8 +29,7 @@ Resources:
     CommonLayer:
         Type: AWS::Serverless::LayerVersion
         Properties:
-            LayerName: BookServiceCommonLayer
-            Description: ''
+            LayerName: CommonLayer
             ContentUri: dist/layers/common
             CompatibleRuntimes:
                 - nodejs14.x
