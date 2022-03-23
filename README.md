@@ -1,0 +1,1 @@
+# cross-platform-sam-local-lambda2lambda-invoke
