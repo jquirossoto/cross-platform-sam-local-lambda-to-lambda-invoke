@@ -8,9 +8,8 @@ export const invoke = async (
 ): Promise<Lambda.InvocationResponse> => {
     let endpoint: Endpoint;
     if (process.env.AWS_SAM_LOCAL) {
-        if (invocationType !== 'RequestResponse') {
-            invocationType = 'RequestResponse';
-        }
+        //overrides the invocationType because for SAM local only RequestResponse is supported.
+        invocationType = 'RequestResponse';
         if (await isDomainResolved('host.docker.internal')) {
             endpoint = new Endpoint('http://host.docker.internal:3001');
         } else {
