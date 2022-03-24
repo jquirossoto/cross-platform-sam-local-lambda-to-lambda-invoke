@@ -3,6 +3,9 @@
     "version": "1.0.0",
     "description": "",
     "main": "index.js",
+    "engines": {
+        "node": ">=14"
+    },
     "scripts": {
         "lint": "eslint . --ext .ts --fix",
         "prebuild": "npm run lint && npm run build:clean",
@@ -14,7 +17,7 @@
         "invoke": "aws lambda invoke --function-name SourceFunction --endpoint-url \"http://0.0.0.0:3001\" --no-verify-ssl out.txt",
         "test": "echo \"Error: no test specified\" && exit 1"
     },
-    "author": "",
+    "author": "jquirossoto",
     "license": "ISC",
     "devDependencies": {
         "@trivago/prettier-plugin-sort-imports": "^3.2.0",
