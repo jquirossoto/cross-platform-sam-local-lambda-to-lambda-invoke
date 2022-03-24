@@ -6,4 +6,4 @@ To run the application in Windows or Mac, execute `npm run start`.
 
 To run the appication in Linux, execute `npm run start:linux`.
 
-To invoke, execute `npm run invoke`.
+Once the application is running, you can invoke the Source lambda by executing `npm run invoke`. The Source lambda will in turn invoke the Target lambda.
