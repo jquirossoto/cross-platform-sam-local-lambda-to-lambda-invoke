@@ -18,15 +18,13 @@ export const invoke = async (
             endpoint = new Endpoint('http://172.17.0.1:3001');
         }
     }
-    const lambda = new Lambda({
-        endpoint: endpoint
-    });
-    const params: Lambda.Types.InvocationRequest = {
+    const lambda = new Lambda({ endpoint });
+    const request: Lambda.Types.InvocationRequest = {
         FunctionName: functionName,
         InvocationType: invocationType,
         Payload: JSON.stringify(payload)
     };
-    return lambda.invoke(params).promise();
+    return lambda.invoke(request).promise();
 };
 
 const isDomainResolved = async (domain: string) => {
