@@ -53,6 +53,3 @@ Resources:
             FunctionName: target
             CodeUri: dist/handlers/target
             Handler: app.handler
-            Layers:
-                - !Ref DependencyLayer
-                - !Ref CommonLayer
