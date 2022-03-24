@@ -1,6 +1,6 @@
 # cross-platform-sam-local-lambda2lambda-invoke
 
-Simple project that shows how to implement cross-platform (Windows, Linux, Mac) AWS SAM local lambda 2 lambda invocations.
+Simple project that shows how to implement cross-platform (Windows, Linux, Mac) AWS SAM local lambda to lambda invocations.
 
 To run the application in Windows or Mac, execute `npm run start`.
 
