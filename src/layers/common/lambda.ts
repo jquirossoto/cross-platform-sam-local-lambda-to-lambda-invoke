@@ -11,8 +11,10 @@ export const invoke = async (
         //overrides the invocationType because for SAM local only RequestResponse is supported.
         invocationType = 'RequestResponse';
         if (await isDomainResolved('host.docker.internal')) {
+            //host is Windows or Mac
             endpoint = new Endpoint('http://host.docker.internal:3001');
         } else {
+            //host is Linux
             endpoint = new Endpoint('http://172.17.0.1:3001');
         }
     }
